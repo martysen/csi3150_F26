@@ -31,8 +31,8 @@ Throughout the semester, we will construct **5 hands-on, live lecture projects**
 This repository is structured so you can follow along during lectures and review working solutions after class:
 
 - **Root Reference Cheatsheets:**
-  - [`HTML_Cheatsheet.md`](./HTML_Cheatsheet.md) — Fast reference for semantic elements, attributes, forms, and structuring conventions.
-  - [`CSS_Cheatsheet.md`](./CSS_Cheatsheet.md) — Syntax guide covering box model, Flexbox properties, CSS Grid layouts, and selectors.
+  - [`HTML_Cheatsheet.md`](./html5-cheat-sheet.md) — Fast reference for semantic elements, attributes, forms, and structuring conventions.
+  - [`CSS_Cheatsheet.md`](./css3-cheat-sheet.md) — Syntax guide covering box model, Flexbox properties, CSS Grid layouts, and selectors.
   - More to come.
 
 - **Individual Project Folders (`proj1/` – `proj5/`):**
