@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ApexPay API-First Global Payment Infrastructure">
+  <title>ApexPay — Financial Infrastructure for Developers</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- LANDMARK: HEADER & NAVIGATION -->
+  <header class="site-header">
+    <a href="#" class="brand-logo" aria-label="ApexPay Home">
+       <!-- https://www.compart.com/en/unicode/U+25B2 -->
+      <span class="logo-icon">▲</span> ApexPay
+    </a>
+    <nav class="nav-menu" aria-label="Primary Navigation">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#calculator" class="nav-link">Calculator</a>
+      <a href="#register" class="btn btn-sm btn-primary">Get API Keys</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="badge-pill">New: Sub-second global payouts</div>
+      <h1 class="hero-title">Financial Infrastructure Built for High-Volume Scale</h1>
+      <p class="hero-subtitle">
+        Integrate payments, automated recurring billing, and programmable fraud prevention with five lines of code.
+      </p>
+      <div class="cta-group">
+        <a href="#register" class="btn btn-primary">Start Sandbox Trial</a>
+        <a href="#pricing" class="btn btn-secondary">View Pricing Matrix</a>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION (CSS GRID 2D) -->
+    <section id="features" class="section-container">
+      <header class="section-header">
+        <h2 class="section-title">Engineered for Reliability</h2>
+        <p class="section-subtitle">Everything needed to accept multi-currency payments globally.</p>
+      </header>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <!-- https://www.compart.com/en/unicode/U+26A1 -->
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">99.999% SLA Uptime</h3>
+          <p class="feature-desc">Distributed core engine across multi-region cloud clusters with automatic fallback.</p>
+        </article>
+        
+        <article class="feature-card">
+          <!-- https://www.compart.com/en/unicode/U+1F512 -->
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">PCI-DSS Level 1</h3>
+          <p class="feature-desc">Automated compliance tokens remove cardholder data exposure from your servers.</p>
+        </article>
+
+        <article class="feature-card">
+          <!-- https://www.compart.com/en/unicode/U+1F310 -->
+          <div class="feature-icon">🌐</div>
+          <h3 class="feature-title">135+ Currencies</h3>
+          <p class="feature-desc">Dynamic currency conversion and localized settlement directly to regional banks.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION (TIERED CARDS) -->
+    <section id="pricing" class="section-container">
+      <header class="section-header">
+        <h2 class="section-title">Predictable, Transparent Pricing</h2>
+        <p class="section-subtitle">Scale seamlessly from first transaction to enterprise volumes.</p>
+      </header>
+
+      <div class="pricing-grid">
+        <!-- Tier 1: Starter -->
+        <article class="pricing-card">
+          <h3 class="tier-name">Starter</h3>
+          <p class="tier-desc">For early-stage startups and MVPs.</p>
+          <div class="tier-price">
+            <span class="price-val">2.9%</span> 
+            <!--https://www.compart.com/en/unicode/U+00A2  -->
+            <span class="price-unit">+ 30¢ / tx</span>
+          </div>
+          <ul class="tier-features">
+            <li>Standard Payouts (T+2)</li>
+            <li>Basic Fraud Screening</li>
+            <li>Email Support</li>
+          </ul>
+          <a href="#register" class="btn btn-outline btn-block">Deploy Starter</a>
+        </article>
+
+        <!-- Tier 2: Growth (Highlighted / Signifier of High Value) -->
+        <article class="pricing-card featured">
+          <div class="popular-tag">Most Popular</div>
+          <h3 class="tier-name">Growth</h3>
+          <p class="tier-desc">For scaling businesses needing lower transaction fees.</p>
+          <div class="tier-price">
+            <span class="price-val">2.2%</span> 
+            <!--https://www.compart.com/en/unicode/U+00A2  -->
+            <span class="price-unit">+ 20¢ / tx</span>
+          </div>
+          <ul class="tier-features">
+            <li>Same-Day Instant Settlement</li>
+            <li>Custom ML Fraud Rules</li>
+            <li>24/7 Dedicated Support</li>
+            <li>Multi-Org Access</li>
+          </ul>
+          <a href="#register" class="btn btn-primary btn-block">Scale with Growth</a>
+        </article>
+
+        <!-- Tier 3: Enterprise -->
+        <article class="pricing-card">
+          <h3 class="tier-name">Enterprise</h3>
+          <p class="tier-desc">For platforms processing over $500k monthly.</p>
+          <div class="tier-price"><span class="price-val">Custom</span> <span class="price-unit">volume rates</span></div>
+          <ul class="tier-features">
+            <li>Dedicated Solutions Architect</li>
+            <li>99.999% Guaranteed SLA</li>
+            <li>Custom Data Warehousing</li>
+          </ul>
+          <a href="#register" class="btn btn-outline btn-block">Contact Sales</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- LEAD CAPTURE FORM SECTION (CONSTRAINTS) -->
+    <section id="register" class="section-container">
+      <div class="form-wrapper">
+        <header class="section-header">
+          <h2 class="section-title">Claim API Sandbox Keys</h2>
+          <p class="section-subtitle">Instant provisioning. No credit card required.</p>
+        </header>
+
+        <form class="lead-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="work-email" class="form-label">Work Email <span class="required-mark">*</span></label>
+            <input 
+              type="email" 
+              id="work-email" 
+              name="workEmail" 
+              class="form-control" 
+              placeholder="name@company.com" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="monthly-volume" class="form-label">Estimated Monthly Volume ($ USD)</label>
+            <input 
+              type="number" 
+              id="monthly-volume" 
+              name="monthlyVolume" 
+              class="form-control" 
+              min="1000" 
+              max="50000000" 
+              step="1000" 
+              placeholder="50,000"
+            >
+            <span class="input-hint">Min: $1,000 - Max: $50,000,000</span>
+          </div>
+
+          <div class="form-group">
+            <label for="business-tier" class="form-label">Target Tier Selection</label>
+            <select id="business-tier" name="businessTier" class="form-control">
+              <option value="starter">Starter ($0 monthly fee)</option>
+              <option value="growth" selected>Growth ($99 monthly fee)</option>
+              <option value="enterprise">Enterprise (Custom)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Generate Sandbox Credentials</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- LANDMARK: FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-copy">&copy; 2026 ApexPay Technologies Inc. Built for CSI 3150.</p>
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="#hero">Back to Top</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>

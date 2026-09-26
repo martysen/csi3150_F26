@@ -1,0 +1,457 @@
+/* ==========================================================================
+   1. CSS VARIABLES (DESIGN TOKENS) & RESET
+   ========================================================================== */
+:root {
+  --bg-dark: #090d16;
+  --bg-card: #111827;
+  --bg-card-hover: #1f2937;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --accent: #10b981;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --transition-speed: 0.2s;
+}
+
+/* Universal Box Model Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. REUSABLE ATOMIC UTILITIES & BUTTONS (SIGNIFIERS & FEEDBACK)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed), border-color var(--transition-speed);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-card);
+  border-color: var(--text-muted);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* ==========================================================================
+   3. STRUCTURAL LAYOUT: HEADER (FLEXBOX 1D)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(9, 13, 22, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  color: var(--primary);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-speed);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   4. HERO SECTION (1D COLUMN LAYOUT)
+   ========================================================================== */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.badge-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   5. SECTIONS & 2D GRIDS (FEATURES & PRICING)
+   ========================================================================== */
+.section-container {
+  padding: 4rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+}
+
+/* Features 2D CSS Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform var(--transition-speed), border-color var(--transition-speed);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.feature-icon {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Pricing Matrix (CSS Grid) */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative; /*any time you see this, there is going to be a child element that will be anchored relative to this*/
+  transition: transform var(--transition-speed);
+}
+
+/* Affordance / Visual Weight for Recommended Tier */
+.pricing-card.featured {
+  border: 2px solid var(--primary);
+  background-color: rgba(99, 102, 241, 0.04);
+  transform: scale(1.03);
+}
+
+.popular-tag {
+  position: absolute; /*abosoulte RELATIVE TO the parent whose position is declared as relative*/
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.tier-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.tier-desc {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.tier-price {
+  margin-bottom: 1.5rem;
+}
+
+.price-val {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.price-unit {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tier-features {
+  list-style-type: none;
+  margin-bottom: 2rem;
+  flex-grow: 1; /* Pushes the button to the bottom evenly */
+}
+
+.tier-features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* :: is for psuedo- / virtual elements. This creates a virtual element dynamically created during render before the li element */
+/*note here, :: creates psuedo elements whereas : creates psuedo-classes which are states created due to user interaction or resulting 
+due to an event being triggered*/
+.tier-features li::before {
+  /* \2714 is the Unicode for ✔, followed by a space (\00A0) */
+  /* content:\2714\00A0 */
+  content: "✓ ";
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   6. FORM LAYOUT & CONSTRAINTS (FEEDBACK MECHANICS)
+   ========================================================================== */
+.form-wrapper {
+  max-width: 600px;
+  /* for the following to work, there has to be a width and/or max-width declared like above */
+  margin: 0 auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem;
+  border-radius: 8px;
+}
+
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.required-mark {
+  color: #ef4444;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed);
+}
+
+/* Visual Feedback on Focus */
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.input-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINT (MEDIA QUERY)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pricing-card.featured {
+    transform: none; /* Avoid mobile clipping */
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
