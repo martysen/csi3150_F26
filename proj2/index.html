@@ -134,10 +134,39 @@
               required
             />
           </div>
+
+          <button
+            type="submit"
+            id="btn-submit"
+            class="btn btn-primary btn-block"
+          >
+            Log Vitals Record
+          </button>
         </form>
       </aside>
+
+      <!-- Right container for output : DYNAMIC CONTENT injection -->
+      <section class="panel records-panel">
+        <div class="records-header">
+          <h2 class="panel-title">Triage Queue</h2>
+          <button id="btn-clear-all" class="btn btn-outline-danger btn-sm">
+            Purge Queue
+          </button>
+        </div>
+
+        <!-- create two states: (1) initial loading (2) state after 
+         user interacts with UI -->
+        <div id="empty-state" class="empty-state">
+          <span class="empty-icon">📋</span>
+          <p>No active triage records logged.</p>
+        </div>
+
+        <ul id="records-list" class="records-grid" aria-live="polite"></ul>
+      </section>
     </main>
-    <footer class="portal-footer"></footer>
+    <footer class="portal-footer">
+      <p>&copy; 2026 CSI 3150 Dashboard Tutorial F2026.</p>
+    </footer>
 
     <!-- integrate JS file here before closing the body tag -->
     <script src="app.js"></script>
