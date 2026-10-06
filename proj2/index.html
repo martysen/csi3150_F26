@@ -10,7 +10,134 @@
     <!-- <script src="app.js" defer></script> -->
   </head>
   <body>
-    <h1>Hello WOrld</h1>
+    <!-- Header with branding/title and active queue count -->
+    <header class="portal-header">
+      <div class="header-content">
+        <div class="brand">
+          <span class="brand-icon">🩺</span>
+          <h1>PulseCare <span class="brand-sub">Triage Intake</span></h1>
+        </div>
+        <div class="header-status">
+          Active Queue: <span id="queue-count" class="badge-count">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- THe main section with 2 container: input and output -->
+    <main class="portal-container">
+      <!-- LEft container for the input form fields -->
+      <aside class="panel form-panel">
+        <h2 class="panel-title">Record Patient Vitals</h2>
+
+        <!-- hidden element which fires if user gives out 
+         of bounds input -->
+        <div
+          id="form-error-banner"
+          class="alert alert-danger hidden"
+          role="alert"
+        ></div>
+
+        <!-- FOrm input -->
+        <form action="#" id="vitals-form" novalidate>
+          <div class="form-group">
+            <label for="patient-name" class="form-label"
+              >Full Name <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              name="patient-name"
+              id="patient-name"
+              class="form-control"
+              placeholder="e.g. Eleanor Vance"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="systolic" class="form-label"
+                >Systolic BP (mmHg) <span class="required">*</span></label
+              >
+              <input
+                type="number"
+                name="systolic"
+                id="systolic"
+                class="form-control"
+                min="60"
+                max="260"
+                placeholder="120"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="diastolic" class="form-label"
+                >Diastolic BP (mmHg) <span class="required">*</span></label
+              >
+              <input
+                type="number"
+                name="diastolic"
+                id="diastolic"
+                class="form-control"
+                min="40"
+                max="150"
+                placeholder="80"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="heart-rate" class="form-label"
+                >Pulse (bpm) <span class="required">*</span></label
+              >
+              <input
+                type="number"
+                name="heart-rate"
+                id="heart-rate"
+                class="form-control"
+                min="30"
+                max="240"
+                placeholder="72"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="spo2" class="form-label"
+                >SpO2 (%) <span class="required">*</span></label
+              >
+              <input
+                type="number"
+                name="spo2"
+                id="spo2"
+                class="form-control"
+                min="50"
+                max="100"
+                placeholder="98"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="temperature" class="form-label">
+              Temp (F) <span class="required">*</span></label
+            >
+            <input
+              type="number"
+              name="temperature"
+              id="temperature"
+              class="form-control"
+              min="90"
+              max="110"
+              placeholder="98.6"
+              step="0.1"
+              required
+            />
+          </div>
+        </form>
+      </aside>
+    </main>
+    <footer class="portal-footer"></footer>
 
     <!-- integrate JS file here before closing the body tag -->
     <script src="app.js"></script>
