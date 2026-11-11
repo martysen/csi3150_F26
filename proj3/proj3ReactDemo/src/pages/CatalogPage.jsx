@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ProductCard from "../components/ProductCard";
 
 function CatalogPage({ products, onAddToCart }) {
   // regular js comment
@@ -24,7 +25,7 @@ function CatalogPage({ products, onAddToCart }) {
 
       {/**this is how to comment INSIDE THE RETURN stmnt */}
       <div className="filter-bar">
-        {categories.map(() => {
+        {categories.map((cat) => {
           <button
             key={cat}
             className={`filter-pill ${selectedCategory === cat ? "active" : ""}`}

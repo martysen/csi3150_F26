@@ -6,7 +6,7 @@ import React from "react";
 // step 2: npm install react-router-dom
 // step 3: in code files replace "react-router" with "react-router-dom"
 // CRUD create read update delete (traversal)
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const CartDrawer = ({ isOpen, cart, onClose, onUpdateQuantity, onRemove }) => {
   // Pre-processing logic - to control auto- navigation to checkout page etc.

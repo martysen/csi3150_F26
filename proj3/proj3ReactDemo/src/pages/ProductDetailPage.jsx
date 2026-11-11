@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetailPage = ({ products, onAddToCart }) => {
   // create the state of the component
@@ -28,7 +28,7 @@ const ProductDetailPage = ({ products, onAddToCart }) => {
       </nav>
 
       <div className="detail-grid">
-        <img src={product.img} alt={product.name} className="detail-img" />
+        <img src={product.image} alt={product.name} className="detail-img" />
 
         <div className="detail-info">
           <span className="product-category">{product.category}</span>

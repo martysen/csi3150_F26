@@ -1,6 +1,6 @@
 import React from "react";
 // if "react-router" does not work; change to react-router-dom
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ cartCount, onOpenCart }) => {
   return (

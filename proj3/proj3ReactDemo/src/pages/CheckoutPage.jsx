@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // replace react-router with 'react-router-dom' after its install
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ cart, onClearCart }) => {
   // check whether the user has confirmed payment submission or not
   const [isSubmitted, setIsSubmitted] = useState(false);
 

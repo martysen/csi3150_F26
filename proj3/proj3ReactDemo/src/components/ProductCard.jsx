@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, onAddtToCart }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   // sanity check: make sure that product to display is not broken
   if (!product) return null;
 
