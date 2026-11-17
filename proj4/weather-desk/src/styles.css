@@ -1,0 +1,477 @@
+/* ==========================================================================
+   Weather Desk: the single stylesheet for the whole app.
+   Imported once, in main.jsx. There are no other CSS files.
+
+   Sections
+     1. Design tokens (CSS variables)
+     2. Reset + base
+     3. Layout
+     4. Navbar + unit toggle
+     5. Panels, buttons, inputs
+     6. Search + saved cities
+     7. City page + weather card
+     8. Feedback (spinner, banner, errors)
+     9. Footer
+    10. Responsive tweaks
+   ========================================================================== */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  --bg: #eef3f9;
+  --surface: #ffffff;
+  --text: #16202e;
+  --muted: #64748b;
+  --border: #dbe3ee;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-soft: #e8f0ff;
+  --danger: #b42318;
+  --danger-soft: #fef0ee;
+  --warn: #92400e;
+  --warn-soft: #fff4dc;
+
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(16, 32, 56, 0.06), 0 6px 20px rgba(16, 32, 56, 0.06);
+  --font:
+    system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ---------- 2. Reset + base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: linear-gradient(180deg, #dfeafb 0%, var(--bg) 280px);
+  background-attachment: fixed;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--primary);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.center {
+  text-align: center;
+}
+
+/* ---------- 3. Layout ---------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hero {
+  padding: 8px 2px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ---------- 4. Navbar + unit toggle ---------- */
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.unit-toggle {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.unit-toggle__opt {
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.unit-toggle__opt.is-active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ---------- 5. Panels, buttons, inputs ---------- */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.panel__title {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 14px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.input:focus {
+  outline: 3px solid var(--primary-soft);
+  border-color: var(--primary);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  color: var(--primary);
+  background: var(--primary-soft);
+  border-color: var(--primary-soft);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: #d6e4ff;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* ---------- 6. Search + saved cities ---------- */
+.search__row {
+  display: flex;
+  gap: 10px;
+}
+
+.status {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.results {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.results li + li {
+  border-top: 1px solid var(--border);
+}
+
+.results__link {
+  display: block;
+  padding: 11px 14px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.results__link:hover {
+  background: var(--primary-soft);
+}
+
+.saved__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.saved__item + .saved__item {
+  border-top: 1px solid var(--border);
+}
+
+.saved__link {
+  flex: 1;
+  padding: 8px 0;
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.saved__link:hover {
+  color: var(--primary);
+}
+
+/* ---------- 7. City page + weather card ---------- */
+.city-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.city-header__name {
+  margin-top: 4px;
+}
+
+.back {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.weather__now {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 18px;
+  row-gap: 18px;
+}
+
+.weather__icon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.weather__temp {
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.weather__unit {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+.weather__desc {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.weather__stats {
+  grid-column: 1 / -1;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.weather__stats dt {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.weather__stats dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+
+.forecast__day {
+  display: grid;
+  grid-template-columns: 70px 40px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+}
+
+.forecast__day + .forecast__day {
+  border-top: 1px solid var(--border);
+}
+
+.forecast__name {
+  font-weight: 600;
+}
+
+.forecast__icon {
+  font-size: 1.5rem;
+}
+
+.forecast__rain {
+  font-size: 0.9rem;
+}
+
+/* ---------- 8. Feedback ---------- */
+.error {
+  color: var(--danger);
+}
+
+.banner {
+  padding: 12px 16px;
+  color: var(--warn);
+  background: var(--warn-soft);
+  border: 1px solid #f3d9a0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 10px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- 9. Footer ---------- */
+.footer {
+  padding: 18px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---------- 10. Responsive tweaks ---------- */
+@media (max-width: 520px) {
+  h1 {
+    font-size: 1.55rem;
+  }
+
+  .weather__icon {
+    font-size: 3rem;
+  }
+
+  .weather__temp {
+    font-size: 2.8rem;
+  }
+
+  .forecast__day {
+    grid-template-columns: 56px 34px 1fr;
+  }
+
+  .forecast__rain {
+    display: none;
+  }
+}
